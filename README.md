@@ -1,14 +1,17 @@
 # SpringBoot原理解析
+
 ### BeanFactory与ApplicationContext的区别
 
 #### 1.到底什么是BeanFactory
+![在这里插入图片描述](https://img-blog.csdnimg.cn/d59046698499452fb0695c533fe8898d.png)
 
-![image-20220602181334443](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220602181334443.png)
+
 
 > ​	它是ApplicationContext的父接口
 > ​	它才是Spring的核心容器,主要的ApplicationContext实现都是组合它的功能
 
-![image-20220602175607666](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220602175607666.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/8394e1b652de4aa0957ca7f8297b5d1b.png)
+
 
 通过这个图片我们可以看出来,在ApplicationContext中有一个beanFactory在它中有singletonObjects,这里面存放了我们的所有bean
 
@@ -67,4 +70,22 @@ public class Component2 {
 
 ApplicationContext的功能来自于它整合的接口下面分别来介绍一下这四个接口的主要功能
 
-![image-20220602182837211](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220602182837211.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ea6faf3cb1584da9bb8217aa2332dac2.png)
+
+
+##### 1.MessageSource国际化
+
+```java
+System.out.println(context.getMessage("hi", null, Locale.CHINA));
+System.out.println(context.getMessage("hi", null, Locale.ENGLISH));
+System.out.println(context.getMessage("hi", null, Locale.JAPANESE));
+```
+
+控制台输出
+
+你好
+Hello
+こんにちは
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ac1d5978a38c4f8aadc525bac466b168.png)
+
+

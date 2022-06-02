@@ -86,6 +86,7 @@ System.out.println(context.getMessage("hi", null, Locale.JAPANESE));
 你好
 Hello
 こんにちは
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/ac1d5978a38c4f8aadc525bac466b168.png)
 
 

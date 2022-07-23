@@ -10,6 +10,8 @@
 
 4、调用refreshContext() 方法启动Spring容器和内置的Servlet容器,(注册bean就是在这一步完成的)
 
+## IOC
+
 
 ### BeanFactory与ApplicationContext的区别
 
@@ -864,9 +866,9 @@ prototype访问一次创建一个实例，相当于new。
 1.需要回收重要资源(数据库连接等)的事宜配置为singleton，如果配置为prototype需要应用确保资源正常回收。
 2.有状态的Bean配置成singleton会引发未知问题，可以考虑配置为prototyp
 
-### AOP实现方法
+## AOP
 
-#### ajc增强
+### ajc增强
 
 优点:不是调用代理来增强,可以增强代理类
 
@@ -878,13 +880,13 @@ prototype访问一次创建一个实例，相当于new。
 
 这是由于`idea`中在执行代码之前会默认编译一遍代码，这本来是正常的，可是，如果使用`maven`来编译代码，会在执行代码前将`maven`编译的代码覆盖，这就会导致`maven`的`ajc`编译器增强的代码被覆盖，所以会看不到最终的运行效果。 
 
-#### agent增强
+### agent增强
 
 这两种方法都没有流行起来
 
 
 
-#### 动态代理
+### 动态代理
 
 通过动态代理有两种方法一种是jdk动态代理和cglib动态代理。这两种最大的区别就是,jdk产生的代理类和目标类是同级关系,cglib产生的代理类和目标类是父子关系。
 
@@ -985,7 +987,7 @@ public class A15 {
 }
 ```
 
-#### 切点匹配
+### 切点匹配
 
 切面匹配基础的有两种方式,一种是匹配方法的名字另一种是根据注解比配,例子如下
 
@@ -1061,7 +1063,7 @@ System.out.println(pt3.matches(T1.class.getMethod("foo"), T2.class));
 System.out.println(pt3.matches(T1.class.getMethod("foo"), T3.class));
 ```
 
-#### Spring关于AOP的处理
+### Spring关于AOP的处理
 
 Spring基于注解的Aop操作,主要是通过一个后处理器来自动配置的**AnnotationAwareAspectJAutoProxyCreator**他有两个特别重要的方法
 
@@ -1210,7 +1212,7 @@ static class Config {
 
 ![image-20220707154023090](http://cdn.zhaodapiaoliang.top/PicGo/image-20220707154023090.png)
 
-#### 高级切面转换为低级切面
+### 高级切面转换为低级切面
 
 我们说最后spring容器中都是以低级切面的方式存在下面的代码简单模拟了高级切面转换为低级切面
 
@@ -1254,7 +1256,7 @@ public class A17_1 {
 }
 ```
 
-#### 统一转换成环绕通知
+### 统一转换成环绕通知
 
 其实无论 ProxyFactory 基于哪种方式创建代理, 最后干活(调用 advice)的是一个 MethodInvocation 对象
     a. 因为 advisor 有多个, 且一个套一个调用, 因此需要一个调用链对象, 即 MethodInvocation
@@ -1292,7 +1294,7 @@ MethodInvocation methodInvocation = new ReflectiveMethodInvocation(
 );
 ```
 
-#### 设计模式-适配器模式
+### 设计模式-适配器模式
 
 在spring中AOP操作统一转换成环绕通知这个过程用到了设计模式中的**适配器模式**
 

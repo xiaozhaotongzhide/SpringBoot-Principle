@@ -1,0 +1,12 @@
+com.example.a35.A41_1$MyImportSelector=\
+com.example.a35.A41_1.AutoConfiguration1,\
+com.example.a35.A41_1.AutoConfiguration2
+
+#com.example.a35.A41_2$MyImportSelector=\
+com.example.a35.A41_2.AutoConfiguration1,\
+com.example.a35.A41_2.AutoConfiguration2
+
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.example.a35.A41_2.AutoConfiguration1,\
+com.example.a35.A41_2.AutoConfiguration2
